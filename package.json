@@ -1,0 +1,56 @@
+{
+  "name": "antd-issue-helper",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "antd": "^4.7.0",
+    "compare-versions": "^3.6.0",
+    "react": "^16.13.1",
+    "react-context-io": "^0.0.7",
+    "react-dom": "^16.13.1",
+    "react-intl": "^2.4.0",
+    "react-scripts": "^3.4.3",
+    "remarkable": "^1.7.4",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^14.11.8",
+    "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-intl": "^2.3.2",
+    "@types/remarkable": "^1.7.4",
+    "husky": "^4.3.0",
+    "mdx.macro": "^0.2.9",
+    "node-sass": "^4.14.1",
+    "lint-staged": ">=10",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^2.0.1",
+    "reactive.macro": "^0.0.7",
+    "source-map-explorer": "^2.5.0",
+    "typescript": "^3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
