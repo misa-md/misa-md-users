@@ -127,6 +127,36 @@ ${content}
     props.onIssueTypeChanged(form.getFieldValue("type"));
   }, []);
 
+  const onFormChanged = (_: any, values: any) => {
+    let preForm = {};
+    try {
+      preForm = JSON.parse(localStorage.getItem("form") as string) || {};
+    } catch (err) {
+      // Do nothing
+    }
+    const cacheForm: any = {
+      ...preForm,
+    };
+    Object.keys(values).forEach((key) => {
+      if (values[key]) {
+        cacheForm[key] = values[key];
+      }
+    });
+    localStorage.setItem("form", JSON.stringify(cacheForm, null, 2));
+
+    // change issue title:
+    if (form.getFieldValue("type") === "new_user") {
+      Object.keys(values).forEach((key) => {
+        if (key === "new_user_org") {
+          const org = form.getFieldValue("new_user_org");
+          form.setFieldsValue({
+            title: org ? "New User from " + org : "New User",
+          });
+        }
+      });
+    }
+  };
+
   const repo = form.getFieldValue("repo");
   const versions = repoVersions[repo] || [];
 
@@ -144,23 +174,7 @@ ${content}
         onFinish={() => {
           triggerPreview(true);
         }}
-        onValuesChange={(_, values) => {
-          let preForm = {};
-          try {
-            preForm = JSON.parse(localStorage.getItem("form") as string) || {};
-          } catch (err) {
-            // Do nothing
-          }
-          const cacheForm: any = {
-            ...preForm,
-          };
-          Object.keys(values).forEach((key) => {
-            if (values[key]) {
-              cacheForm[key] = values[key];
-            }
-          });
-          localStorage.setItem("form", JSON.stringify(cacheForm, null, 2));
-        }}
+        onValuesChange={onFormChanged}
       >
         <PreviewModal
           visible={preview}

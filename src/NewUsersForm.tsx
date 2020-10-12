@@ -9,7 +9,7 @@ const { TextArea } = Input;
 const FeatureForm: React.FC<{}> = () => (
   <div>
     <Form.Item
-      name="new_user_title"
+      name="title"
       label={<FormattedMessage id="issue.title" defaultMessage="title" />}
       rules={[{ required: true }]}
       initialValue={"New User"}
