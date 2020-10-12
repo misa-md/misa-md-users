@@ -11,7 +11,7 @@ export const Programs: Array<ProgramMeta> = [
     enabled: true,
     label: "misa-md",
     display: "MISA-MD",
-    users_repo: "misa-md/misa-md-users",
+    users_repo: "misa-md/misa-md",
   },
   {
     name: "misa-md-hip",

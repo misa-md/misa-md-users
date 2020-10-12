@@ -122,8 +122,9 @@ ${content}
 
     localStorage.clear();
 
+    const submittRepo = `misa-md/misa-md-users`;
     window.open(
-      `https://github.com/${repo}/issues/new?title=${title}&body=${body}${label}`
+      `https://github.com/${submittRepo}/issues/new?title=${title}&body=${body}${label}`
     );
   }, []);
 
