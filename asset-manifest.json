@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/misa-md-users/static/css/main.f6698ac8.chunk.css",
+    "main.js": "/misa-md-users/static/js/main.8855fffb.chunk.js",
+    "main.js.map": "/misa-md-users/static/js/main.8855fffb.chunk.js.map",
+    "runtime-main.js": "/misa-md-users/static/js/runtime-main.2eae0873.js",
+    "runtime-main.js.map": "/misa-md-users/static/js/runtime-main.2eae0873.js.map",
+    "static/css/2.e10332d9.chunk.css": "/misa-md-users/static/css/2.e10332d9.chunk.css",
+    "static/js/2.c62a68ad.chunk.js": "/misa-md-users/static/js/2.c62a68ad.chunk.js",
+    "static/js/2.c62a68ad.chunk.js.map": "/misa-md-users/static/js/2.c62a68ad.chunk.js.map",
+    "index.html": "/misa-md-users/index.html",
+    "precache-manifest.49b67064ee457a76e644cb7b4204d5d9.js": "/misa-md-users/precache-manifest.49b67064ee457a76e644cb7b4204d5d9.js",
+    "service-worker.js": "/misa-md-users/service-worker.js",
+    "static/css/2.e10332d9.chunk.css.map": "/misa-md-users/static/css/2.e10332d9.chunk.css.map",
+    "static/css/main.f6698ac8.chunk.css.map": "/misa-md-users/static/css/main.f6698ac8.chunk.css.map",
+    "static/js/2.c62a68ad.chunk.js.LICENSE.txt": "/misa-md-users/static/js/2.c62a68ad.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2eae0873.js",
+    "static/css/2.e10332d9.chunk.css",
+    "static/js/2.c62a68ad.chunk.js",
+    "static/css/main.f6698ac8.chunk.css",
+    "static/js/main.8855fffb.chunk.js"
+  ]
+}
