@@ -1,0 +1,11 @@
+{
+  "issue.type.new_user": "新用户",
+  "issue.new_user.name_or_orcid": "您的称呼(如姓名)或者 ORCID",
+  "issue.new_user.contact_email": "联系邮箱",
+  "issue.new_user.org": "您所在机构或组织",
+  "issue.new_user.areas_of_interest": "您的研究方向或专长",
+  "issue.new_user.apply_field": "您将在何种领域下应用该程序? (例如:聚变第一壁材料模拟)",
+  "issue.title": "Issue 标题",
+  "issue.program": "程序代码",
+  "issue.preview": "预览和发布"
+}

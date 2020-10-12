@@ -1,0 +1,1 @@
+Email is used to receive program code, user manual and materials of program detail.

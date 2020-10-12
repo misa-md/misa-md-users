@@ -1,6 +1,7 @@
 import * as React from "react";
-import { addLocaleData } from "react-intl";
+import { IntlProvider, addLocaleData } from "react-intl";
 import { Layout, Button } from "antd";
+import IssueForm from "./IssueForm";
 import LocaleContext, { switchLocale } from "./LocaleContext";
 import styles from "./App.module.scss";
 
@@ -21,9 +22,9 @@ const App: React.FC = () => {
             <div className={styles.logo}>
               <img
                 alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                src="https://misa-md.github.io/MDoc/img/logo.svg"
               />
-              <h1>MISA-MD Users</h1>
+              <h1>MISA-MD Preview Users</h1>
             </div>
             <div className={styles.locale}>
               <Button
@@ -35,6 +36,11 @@ const App: React.FC = () => {
             </div>
           </div>
         </Header>
+        <IntlProvider locale={localeString} messages={appLocale.messages}>
+          <Content className={styles.content}>
+            <IssueForm />
+          </Content>
+        </IntlProvider>
         <Footer style={{ textAlign: "center" }}>
           Inspired by{" "}
           <a

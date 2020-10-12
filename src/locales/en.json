@@ -1,0 +1,11 @@
+{
+  "issue.type.new_user": "New User",
+  "issue.new_user.name_or_orcid": "Your preferred name or ORCID",
+  "issue.new_user.contact_email": "Your contact email",
+  "issue.new_user.org": "Your institutions/organizations",
+  "issue.new_user.areas_of_interest": "Your areas of interest or expertise",
+  "issue.new_user.apply_field": "Which filed(s) will you apply this program to? (e.g. First wall materials simulation)",
+  "issue.title": "Title",
+  "issue.program": "Program Code",
+  "issue.preview": "Preview and Submit"
+}
