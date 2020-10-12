@@ -2,7 +2,6 @@ import * as React from "react";
 import { Form, Row, Col, Select, Button, Radio, Alert } from "antd";
 import { FormattedMessage } from "react-intl";
 import { BugOutlined } from "@ant-design/icons";
-import { state } from "reactive.macro";
 import NewUsersForm from "./NewUsersForm";
 import createPreview from "./createPreview";
 import useVersions from "./hooks/useVersions";
@@ -29,8 +28,6 @@ interface IssueFormProps {
 }
 
 const IssueForm: React.FC<IssueFormProps> = (props) => {
-  let reproModal = state(false);
-
   const [form] = Form.useForm();
 
   const getContent = (type: string) =>
@@ -50,7 +47,6 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
     formRef.current!.addEventListener("click", (e: Event) => {
       if ((e.target as any).getAttribute("href") === "#repro-modal") {
         e.preventDefault();
-        reproModal = true;
       }
     });
   }, []);
@@ -86,11 +82,13 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
         form.setFieldsValue(values);
       }, 100);
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleTypeChange = React.useCallback(() => {
     restoreValues(["type"]);
     props.onIssueTypeChanged(form.getFieldValue("type"));
+    // eslint-disable-next-line
   }, []);
 
   const handleCreate = React.useCallback(() => {
@@ -117,6 +115,7 @@ ${content}
     window.open(
       `https://github.com/${submittRepo}/issues/new?title=${title}&body=${body}${label}`
     );
+    // eslint-disable-next-line
   }, []);
 
   React.useEffect(() => {
@@ -124,6 +123,7 @@ ${content}
     bindModalHandler();
     restoreValues();
     props.onIssueTypeChanged(form.getFieldValue("type"));
+    // eslint-disable-next-line
   }, []);
 
   const onFormChanged = (_: any, values: any) => {
