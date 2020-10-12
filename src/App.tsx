@@ -1,6 +1,8 @@
 import * as React from "react";
+import { useState } from "react";
 import { IntlProvider, addLocaleData } from "react-intl";
 import { Layout, Button } from "antd";
+import NewUserIntro from "./NewUserIntro";
 import IssueForm from "./IssueForm";
 import LocaleContext, { switchLocale } from "./LocaleContext";
 import styles from "./App.module.scss";
@@ -14,6 +16,11 @@ const App: React.FC = () => {
   const appLocale = window.appLocale[localeString];
   addLocaleData(appLocale.data);
 
+  const [issueType, setIssueType] = useState<string>();
+  const onIssueTypeChanged = (type: string) => {
+    setIssueType(type);
+  };
+
   return (
     <LocaleContext.Provider>
       <Layout className="layout">
@@ -24,7 +31,7 @@ const App: React.FC = () => {
                 alt="logo"
                 src="https://misa-md.github.io/MDoc/img/logo.svg"
               />
-              <h1>MISA-MD Preview Users</h1>
+              <h1>MISA-MD Issue Helper</h1>
             </div>
             <div className={styles.locale}>
               <Button
@@ -38,7 +45,8 @@ const App: React.FC = () => {
         </Header>
         <IntlProvider locale={localeString} messages={appLocale.messages}>
           <Content className={styles.content}>
-            <IssueForm />
+            {issueType === "new_user" ? <NewUserIntro /> : <> </>}
+            <IssueForm onIssueTypeChanged={onIssueTypeChanged} />
           </Content>
         </IntlProvider>
         <Footer style={{ textAlign: "center" }}>

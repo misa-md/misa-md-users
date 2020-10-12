@@ -13,4 +13,18 @@ export const Programs: Array<ProgramMeta> = [
     display: "MISA-MD",
     users_repo: "misa-md/misa-md-users",
   },
+  {
+    name: "misa-md-hip",
+    enabled: true,
+    label: "misa-md-hip",
+    display: "MISA-MD-hip (MISA-MD for GPU/DCU) (beta)",
+    users_repo: "misa-md/potential-hip",
+  },
+  {
+    name: "misa-md-sunway",
+    enabled: true,
+    label: "misa-md-sunway",
+    display: "MISA-MD-sunway (MISA-MD for Sunway Taihulight)",
+    users_repo: "misa-md/potential-sunway",
+  },
 ];

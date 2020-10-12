@@ -5,9 +5,17 @@ import LocaleContext from "./LocaleContext";
 const texts: any = {
   en: {
     newUserEmailHelp: importMDX.sync("./locales/en/newUserEmail.md"),
+    newUserIntro: importMDX.sync("./locales/en/newUserIntro.md"),
+    newUserApplyFiledHelp: importMDX.sync(
+      "./locales/en/newUserApplyFiledHelp.md"
+    ),
   },
   zh: {
     newUserEmailHelp: importMDX.sync("./locales/zh/newUserEmail.md"),
+    newUserIntro: importMDX.sync("./locales/zh/newUserIntro.md"),
+    newUserApplyFiledHelp: importMDX.sync(
+      "./locales/zh/newUserApplyFiledHelp.md"
+    ),
   },
 };
 

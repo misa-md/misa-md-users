@@ -8,6 +8,8 @@ import createPreview from "./createPreview";
 import useVersions from "./hooks/useVersions";
 import styles from "./IssueForm.module.scss";
 import { Programs } from "./programs";
+import PreviewModal from "./PreviewModal";
+import ReproModal from "./ReproModal";
 
 const { Option } = Select;
 
@@ -23,7 +25,11 @@ if (!params.repo) {
   params.repo = "misa-md";
 }
 
-const IssueForm: React.FC<{}> = () => {
+interface IssueFormProps {
+  onIssueTypeChanged: (type: string) => void;
+}
+
+const IssueForm: React.FC<IssueFormProps> = (props) => {
   let reproModal = state(false);
 
   const [form] = Form.useForm();
@@ -92,6 +98,7 @@ const IssueForm: React.FC<{}> = () => {
 
   const handleTypeChange = React.useCallback(() => {
     restoreValues(["type"]);
+    props.onIssueTypeChanged(form.getFieldValue("type"));
   }, []);
 
   const handleCreate = React.useCallback(() => {
@@ -124,6 +131,7 @@ ${content}
     fetchVersions("misa-md/misa-md"); // todo: (params.repo);
     bindModalHandler();
     restoreValues();
+    props.onIssueTypeChanged(form.getFieldValue("type"));
   }, []);
 
   const repo = form.getFieldValue("repo");
@@ -137,7 +145,7 @@ ${content}
         size="large"
         initialValues={{
           repo: params.repo,
-          type: "bug",
+          type: "new_user",
           version: versions[0],
         }}
         onFinish={() => {
@@ -161,6 +169,18 @@ ${content}
           localStorage.setItem("form", JSON.stringify(cacheForm, null, 2));
         }}
       >
+        <PreviewModal
+          visible={preview}
+          content={content}
+          onCancel={() => {
+            triggerPreview(false);
+          }}
+          onCreate={handleCreate}
+        />
+        <ReproModal
+          visible={reproModal}
+          onCancel={() => (reproModal = false)}
+        />
         <Row>
           <Col span={11}>
             <Form.Item
@@ -178,7 +198,7 @@ ${content}
                 />
               }
             >
-              <Select onChange={handleRepoChange}>
+              <Select mode="multiple" onChange={handleRepoChange}>
                 {Programs.map((meta) => {
                   return (
                     <Option value={meta.users_repo}>{meta.display}</Option>

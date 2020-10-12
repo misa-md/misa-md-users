@@ -74,6 +74,7 @@ const FeatureForm: React.FC<{}> = () => (
     <FormItem
       name="new_user_apply_field"
       rules={[{ required: true }]}
+      help={<I18n id="newUserApplyFiledHelp" />}
       label={
         <FormattedMessage
           id="issue.new_user.apply_field"
