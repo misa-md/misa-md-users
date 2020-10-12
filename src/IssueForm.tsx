@@ -89,13 +89,6 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
     }
   }, []);
 
-  const handleRepoChange = React.useCallback((repo: string) => {
-    form.resetFields(["version"]);
-    if (!repoVersions[repo]) {
-      fetchVersions(repo);
-    }
-  }, []);
-
   const handleTypeChange = React.useCallback(() => {
     restoreValues(["type"]);
     props.onIssueTypeChanged(form.getFieldValue("type"));
@@ -103,7 +96,6 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
 
   const handleCreate = React.useCallback(() => {
     const issueType = form.getFieldValue("type");
-    const repo = form.getFieldValue("repo");
     const title = encodeURIComponent(form.getFieldValue("title")).replace(
       /%2B/gi,
       "+"
@@ -185,13 +177,14 @@ ${content}
         <Row>
           <Col span={11}>
             <Form.Item
-              name="repo"
+              name="repos"
               label={
                 <FormattedMessage
                   id="issue.program"
                   defaultMessage="I am opening an issue for"
                 />
               }
+              rules={[{ required: true }]}
               help={
                 <FormattedMessage
                   id="issue.repoHelp"
@@ -199,7 +192,7 @@ ${content}
                 />
               }
             >
-              <Select mode="multiple" onChange={handleRepoChange}>
+              <Select mode="multiple">
                 {Programs.map((meta) => {
                   return (
                     <Option value={meta.users_repo}>{meta.display}</Option>
