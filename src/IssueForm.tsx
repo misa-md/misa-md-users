@@ -9,7 +9,6 @@ import useVersions from "./hooks/useVersions";
 import styles from "./IssueForm.module.scss";
 import { Programs } from "./programs";
 import PreviewModal from "./PreviewModal";
-import ReproModal from "./ReproModal";
 
 const { Option } = Select;
 
@@ -183,10 +182,6 @@ ${content}
             triggerPreview(false);
           }}
           onCreate={handleCreate}
-        />
-        <ReproModal
-          visible={reproModal}
-          onCancel={() => (reproModal = false)}
         />
         <Row>
           <Col span={11}>
